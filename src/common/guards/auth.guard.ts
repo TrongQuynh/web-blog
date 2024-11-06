@@ -6,6 +6,11 @@ import { Observable } from "rxjs";
 export class AuthGuard implements CanActivate {
     constructor(private readonly reflector: Reflector) {}
     canActivate(context: ExecutionContext): boolean | Promise<boolean> | Observable<boolean> {
+        const request = context.switchToHttp().getRequest();
+        const user = {
+            id: '5'
+        };
+        request['user'] = user;
         return true;
     }
 }

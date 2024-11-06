@@ -42,4 +42,11 @@ export class HashtagsController {
     return await this.hashtagsService.changeStatusHashtag(param.id, body);
   }
 
+  @ApiOperation({ summary: 'Get detail hashtag' })
+  @ApiOkResponse({ type: DetailHashtagResponseSwagger })
+  @Get(':id/detail')
+  async getDetailHashtag(@Param() param: StringIdParamDto) {
+    return await this.hashtagsService.getDetailHashtag(param.id);
+  }
 }
+

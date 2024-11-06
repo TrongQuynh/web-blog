@@ -80,4 +80,10 @@ export class HashtagsService {
         await this.hashtagModel.findByIdAndUpdate(id, { status });
         return null;
     }
+
+    async getDetailHashtag(id: string) {
+        const hashtag = await this.hashtagModel.findById(id);
+        if (!hashtag) throw new HttpException('Hashtag not found', HttpStatus.NOT_FOUND);
+        return new DetailHashtagResponse(hashtag);
+    }
 }

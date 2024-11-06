@@ -2,9 +2,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { registerDecorator, ValidationOptions } from 'class-validator';
 import * as mongoose from 'mongoose';
-import { TransformObjectId } from '../decorators/transform-object-id.decorator';
-
-
+import { TransformObjectId } from '../decorators/dto.decorator';
 export class StringIdParamDto {
   @TransformObjectId()
   @ApiProperty({
